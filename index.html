@@ -1,10 +1,502 @@
 <!DOCTYPE html>
-<html>
-  <head>
-    <title>My Portfolio</title>
-  </head>
-  <body>
-    <h1>Hello, I’m Vidya 👋</h1>
-    <p>This is my first GitHub Pages site for my my working portfolio.</p>
-  </body>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1"/>
+  <title>Vidya Bandgar | AI & Data Scientist</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+  <style>
+    html { scroll-behavior: smooth; }
+
+    @keyframes float {
+      0% { transform: translate(0px, 0px) rotate(0deg); }
+      25% { transform: translate(5px, -10px) rotate(2deg); }
+      50% { transform: translate(0px, -15px) rotate(0deg); }
+      75% { transform: translate(-5px, -10px) rotate(-2deg); }
+      100% { transform: translate(0px, 0px) rotate(0deg); }
+    }
+    .float { animation: float 4s ease-in-out infinite; }
+
+    @keyframes tagFloat {
+      0%, 100% { transform: translateY(0px); }
+      50% { transform: translateY(-8px); }
+    }
+    .tag-float { animation: tagFloat 3s ease-in-out infinite; }
+
+    .progress-bar {
+      height: 8px;
+      background: linear-gradient(to right, #38bdf8, #ec4899);
+      border-radius: 9999px;
+      width: 0;
+      transition: width 2s ease;
+    }
+    .progress-bar.animated { width: var(--progress); }
+  </style>
+</head>
+<body class="bg-gray-50 text-gray-800">
+
+<!-- Hero Section -->
+<section id="home" class="h-screen flex flex-col md:flex-row justify-center items-center bg-gradient-to-r from-sky-100 via-white to-pink-100 px-6 relative overflow-hidden">
+
+  <!-- Left: Floating Woman Image with Half-Circle Skill Tags -->
+
+<div class="md:w-1/3 mb-8 md:mb-0 flex justify-center relative">
+  <!-- Main Image -->
+  <img src="https://encrypted-tbn1.gstatic.com/images?q=tbn:ANd9GcRPV15AUL_vyOub1BDk3pTs7B8P9dxY8KoNLjNsUExky8zrtOke" 
+       alt="Woman working on laptop" 
+       class="rounded-xl shadow-2xl float w-64 md:w-72 z-10 relative md:left-20 lg:left-28">
+
+<!-- Half-Circle Skill Tags Container -->
+<div class="absolute inset-0 flex justify-center items-center">
+  <div class="relative w-96 h-96">
+
+    <!-- Tags with Pop-Up + Floating Animation -->
+    <span class="tag bg-sky-400" style="top:30; left:70%; animation-delay:0.1s;">AI</span>
+    <span class="tag bg-pink-400" style="top:2%; left:25%; animation-delay:0.3s;">Gen AI</span>
+    <span class="tag bg-purple-500" style="top:20%; left:0%; animation-delay:0.5s;">Machine Learning</span>
+    <span class="tag bg-green-400" style="top:40%; left:0%; animation-delay:0.7s;">Data Science</span>
+    <span class="tag bg-indigo-500" style="top:40%; right:-55%; animation-delay:0.9s;">Python Developer</span>
+    <span class="tag bg-yellow-400" style="top:20%; right:-55%; animation-delay:1.1s;">Developer</span>
+    <span class="tag bg-red-400" style="top:2%; right:-25%; animation-delay:1.3s;">LLM</span>
+
+  </div>
+</div>
+
+<style>
+.tag {
+  position: absolute;
+  padding: 0.25rem 0.75rem;
+  font-size: 0.875rem;
+  font-weight: 600;
+  color: white;
+  border-radius: 9999px;
+  opacity: 0;
+  transform: scale(0.5);
+  animation: pop 0.5s forwards, float 4s ease-in-out infinite;
+  animation-delay: var(--delay), calc(var(--delay) + 0.5s);
+}
+
+/* Pop-up keyframes */
+@keyframes pop {
+  to {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+
+/* Floating keyframes */
+@keyframes float {
+  0%, 100% { transform: translateY(0); }
+  25% { transform: translateY(-6px); }
+  50% { transform: translateY(-12px); }
+  75% { transform: translateY(-6px); }
+}
+</style>
+
+</div>
+
+
+<!-- Right: Text Section (moved slightly right) -->
+<div class="md:w-2/3 flex flex-col justify-center text-center md:text-left relative z-10 md:ml-60">
+  <!-- Heading -->
+<!-- Heading with different font sizes -->
+<h1 class="text-2xl md:text-3xl font-semibold text-gray-700 pop-up" style="animation-delay: 0.1s;">
+  Welcome, I'm
+</h1>
+<h1 class="text-4xl md:text-6xl font-extrabold text-transparent bg-clip-text bg-gradient-to-r from-sky-500 to-pink-500 pop-up" style="animation-delay: 0.2s;">
+  Vidya Bandgar
+</h1>
+
+
+  <!-- Subheading -->
+ <p class="mt-4 text-lg md:text-2xl font-semibold text-gray-700">
+  <span class="pop-up inline-block" style="animation-delay: 0.3s;">GenAI & Data Scientist</span>
+  <span class="pop-up inline-block ml-2" style="animation-delay: 0.6s;">| Python developer</span>
+
+</p>
+
+<style>
+/* Pop up animation */
+@keyframes popUp {
+  0% { opacity: 0; transform: scale(0.5); }
+  100% { opacity: 1; transform: scale(1); }
+}
+.pop-up {
+  opacity: 0;
+  animation: popUp 0.5s forwards;
+  display: inline-block;
+}
+</style>
+
+
+  <!-- Description -->
+  <p class="mt-6 max-w-xl text-gray-600 pop-up" style="animation-delay: 0.6s;">
+    I build robust AI/ML solutions, optimize model deployment, craft efficient pipelines, and enhance system performance end-to-end.
+  </p>
+
+  <!-- Buttons -->
+  <div class="mt-8 flex flex-col sm:flex-row sm:justify-start gap-4 pop-up" style="animation-delay: 0.9s;">
+    <a href="#projects" class="inline-block bg-gradient-to-r from-sky-400 to-pink-400 text-white px-6 py-3 rounded-full font-semibold shadow-lg transform hover:scale-105 transition">
+      See Projects
+    </a>
+    <a href="#contact" class="inline-block bg-gray-800 text-white px-6 py-3 rounded-full font-semibold shadow-lg transform hover:scale-105 transition">
+      Download CV
+    </a>
+  </div>
+</div>
+
+<!-- CSS for Pop-Up Animation -->
+<style>
+@keyframes popUp {
+  0% { opacity: 0; transform: scale(0.5); }
+  100% { opacity: 1; transform: scale(1); }
+}
+.pop-up {
+  opacity: 0;
+  animation: popUp 0.5s forwards;
+}
+</style>
+
+</section>
+
+
+  <!-- About Section -->
+  <section id="about" class="py-16 bg-gray-50">
+    <div class="max-w-6xl mx-auto px-6 grid grid-cols-1 md:grid-cols-2 gap-10 items-center">
+      <div class="flex justify-center" data-aos="fade-right">
+        <img src="https://i.ibb.co/6Z6Y0Lp/woman-laptop.png" alt="Vidya Bandgar" class="w-72 h-72 rounded-2xl shadow-lg object-cover">
+      </div>
+      <div data-aos="fade-left">
+        <h2 class="text-3xl font-bold text-gray-800">About Me</h2>
+        <p class="mt-6 text-gray-600">
+          Results-driven Data Scientist and Python developer with 4 years of experience in Python development, Machine Learning, NLP, Computer Vision, and Generative AI. Proven expertise in building and optimizing AI/ML solutions to drive business growth and operational efficiency. Adept at implementing state-of-the-art models, including ML and GenAI, to solve complex problems across industries.
+        </p>
+        <div class="mt-8 grid grid-cols-1 sm:grid-cols-2 gap-6 text-gray-700">
+          <div>
+            <h3 class="font-semibold text-gray-800">Birthday</h3>
+            <p>13th April 1997</p>
+          </div>
+          <div>
+            <h3 class="font-semibold text-gray-800">Degree</h3>
+            <p>B.E in Electronics & Telecommunication Engineering</p>
+          </div>
+          <div>
+            <h3 class="font-semibold text-gray-800">Email</h3>
+            <p>vidyabandgar97@gmail.com</p>
+          </div>
+          <div>
+            <h3 class="font-semibold text-gray-800">Address</h3>
+            <p>Mumbai, India</p>
+          </div>
+        </div>
+        <div class="mt-8 flex gap-4">
+          <a href="#contact" class="bg-gradient-to-r from-sky-400 to-pink-400 text-white px-6 py-3 rounded-full font-semibold shadow-lg hover:scale-105 transition">Hire Me</a>
+          <a href="#projects" class="bg-gray-800 text-white px-6 py-3 rounded-full font-semibold shadow-lg hover:scale-105 transition">Know More</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Experience Section -->
+  <section id="experience" class="py-16 bg-white text-center">
+    <h2 class="text-3xl font-bold text-gray-800">My Experience</h2>
+    <div class="mt-8 max-w-4xl mx-auto space-y-6 text-left">
+
+      <div class="p-6 bg-gray-50 rounded-xl shadow" data-aos="fade-up">
+        <h3 class="font-bold text-xl">Data Scientist </h3>
+        <p class="text-gray-600">Digital Infomedia Solution | Jan 2024 - Present</p>
+        <p class="mt-2 text-gray-600">Led multiple machine learning, NLP, and GenAI projects for clients, achieving significant improvements in process efficiency.</p>
+      </div>
+      <div class="p-6 bg-gray-50 rounded-xl shadow" data-aos="fade-up">
+        <h3 class="font-bold text-xl">Python Developer</h3>
+        <p class="text-gray-600">Medworld Solutions Pvt Ltd | May 2023 - Jan 2024</p>
+        <p class="mt-2 text-gray-600">Designed and implemented scalable AI-driven solutions, collaborated with development teams, integrated new features, upgraded legacy systems, leveraged Python, GraphQL, React, REST APIs, and AWS (S3, EC2), applied algorithms and data structures, and enhanced efficiency by 35% using Robotic Process Automation (RPA).</p>
+      </div>
+      <div class="p-6 bg-gray-50 rounded-xl shadow" data-aos="fade-up">
+        <h3 class="font-bold text-xl">Python Developer</h3>
+        <p class="text-gray-600">Ideas To Impacts Digital | Dec 2021 - Mar 2023</p>
+        <p class="mt-2 text-gray-600">Developed automated Chrome workflows using Selenium WebDriver in Python to execute end-to-end test cases and validate web application functionalities</p>
+      </div>
+      <div class="p-6 bg-gray-50 rounded-xl shadow" data-aos="fade-up">
+        <h3 class="font-bold text-xl">Research and Development Engineer</h3>
+        <p class="text-gray-600">AERO2ASTRO | May 2021 - May 2022 </p>
+        <p class="mt-2 text-gray-600">Object Detection using YOLO V4, PP-YOLO V2</p>
+      </div>
+    </div>
+  </section>
+
+<!-- Skills Section -->
+<section id="skills" class="py-20 bg-gray-50">
+  <div class="max-w-6xl mx-auto px-6">
+    <h2 class="text-3xl font-bold text-gray-800 text-center mb-12" data-aos="fade-up">My Skills</h2>
+
+    <!-- Two Column Grid -->
+    <div class="grid md:grid-cols-2 gap-12">
+
+      <!-- Left Column -->
+      <div class="space-y-8">
+        <!-- Swift -->
+        <div data-aos="fade-right">
+          <div class="flex justify-between mb-2">
+            <span class="font-semibold text-gray-700">Python</span>
+            <span class="text-gray-600">90%</span>
+          </div>
+          <div class="w-full bg-gray-200 rounded-full h-3 overflow-hidden">
+            <div class="progress-bar bg-gradient-to-r from-sky-400 to-pink-400 h-3 rounded-full" style="width:0%" data-target="90"></div>
+          </div>
+        </div>
+
+        <!-- Cloud Computing -->
+        <div data-aos="fade-right" data-aos-delay="100">
+          <div class="flex justify-between mb-2">
+            <span class="font-semibold text-gray-700">Machine Learning Algorithms</span>
+            <span class="text-gray-600">80%</span>
+          </div>
+          <div class="w-full bg-gray-200 rounded-full h-3 overflow-hidden">
+            <div class="progress-bar bg-gradient-to-r from-green-400 to-blue-400 h-3 rounded-full" style="width:0%" data-target="80"></div>
+          </div>
+        </div>
+
+        <!-- Data Structures & Algorithms -->
+        <div data-aos="fade-right" data-aos-delay="200">
+          <div class="flex justify-between mb-2">
+            <span class="font-semibold text-gray-700">Deep Learning Algorithms</span>
+            <span class="text-gray-600">80%</span>
+          </div>
+          <div class="w-full bg-gray-200 rounded-full h-3 overflow-hidden">
+            <div class="progress-bar bg-gradient-to-r from-purple-400 to-indigo-500 h-3 rounded-full" style="width:0%" data-target="90"></div>
+          </div>
+        </div>
+
+        <!-- Node.js -->
+        <div data-aos="fade-right" data-aos-delay="300">
+          <div class="flex justify-between mb-2">
+            <span class="font-semibold text-gray-700">GenAI, LLM </span>
+            <span class="text-gray-600">85%</span>
+          </div>
+          <div class="w-full bg-gray-200 rounded-full h-3 overflow-hidden">
+            <div class="progress-bar bg-gradient-to-r from-yellow-400 to-orange-400 h-3 rounded-full" style="width:0%" data-target="85"></div>
+          </div>
+        </div>
+
+        <!-- Core PHP -->
+        <div data-aos="fade-right" data-aos-delay="400">
+          <div class="flex justify-between mb-2">
+            <span class="font-semibold text-gray-700">Libraries (Numpy, Pandas, Matplotlib, Hugging-face, Lang-chain)</span>
+            <span class="text-gray-600">90%</span>
+          </div>
+          <div class="w-full bg-gray-200 rounded-full h-3 overflow-hidden">
+            <div class="progress-bar bg-gradient-to-r from-pink-500 to-red-500 h-3 rounded-full" style="width:0%" data-target="90"></div>
+          </div>
+        </div>
+
+        <!-- Objective-C -->
+        <div data-aos="fade-right" data-aos-delay="500">
+          <div class="flex justify-between mb-2">
+            <span class="font-semibold text-gray-700">Data Pre-processing, Feature Engineer</span>
+            <span class="text-gray-600">80%</span>
+          </div>
+          <div class="w-full bg-gray-200 rounded-full h-3 overflow-hidden">
+            <div class="progress-bar bg-gradient-to-r from-blue-400 to-sky-500 h-3 rounded-full" style="width:0%" data-target="80"></div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Right Column -->
+      <div class="space-y-8">
+        <!-- Kotlin -->
+        <div data-aos="fade-left">
+          <div class="flex justify-between mb-2">
+            <span class="font-semibold text-gray-700">Django</span>
+            <span class="text-gray-600">85%</span>
+          </div>
+          <div class="w-full bg-gray-200 rounded-full h-3 overflow-hidden">
+            <div class="progress-bar bg-gradient-to-r from-green-400 to-teal-500 h-3 rounded-full" style="width:0%" data-target="85"></div>
+          </div>
+        </div>
+
+        <!-- JavaScript -->
+        <div data-aos="fade-left" data-aos-delay="100">
+          <div class="flex justify-between mb-2">
+            <span class="font-semibold text-gray-700">Flask, FastAPI </span>
+            <span class="text-gray-600">80%</span>
+          </div>
+          <div class="w-full bg-gray-200 rounded-full h-3 overflow-hidden">
+            <div class="progress-bar bg-gradient-to-r from-yellow-400 to-green-500 h-3 rounded-full" style="width:0%" data-target="80"></div>
+          </div>
+        </div>
+
+        <!-- Java -->
+        <div data-aos="fade-left" data-aos-delay="200">
+          <div class="flex justify-between mb-2">
+            <span class="font-semibold text-gray-700">AWS (S3, EC2)</span>
+            <span class="text-gray-600">90%</span>
+          </div>
+          <div class="w-full bg-gray-200 rounded-full h-3 overflow-hidden">
+            <div class="progress-bar bg-gradient-to-r from-red-400 to-pink-500 h-3 rounded-full" style="width:0%" data-target="90"></div>
+          </div>
+        </div>
+
+        <!-- WordPress -->
+        <div data-aos="fade-left" data-aos-delay="300">
+          <div class="flex justify-between mb-2">
+            <span class="font-semibold text-gray-700">Selenium , Beautiful soap (Data extraction) </span>
+            <span class="text-gray-600">95%</span>
+          </div>
+          <div class="w-full bg-gray-200 rounded-full h-3 overflow-hidden">
+            <div class="progress-bar bg-gradient-to-r from-blue-400 to-indigo-500 h-3 rounded-full" style="width:0%" data-target="75"></div>
+          </div>
+        </div>
+
+        <!-- UX Tools -->
+        <div data-aos="fade-left" data-aos-delay="400">
+          <div class="flex justify-between mb-2">
+            <span class="font-semibold text-gray-700">Data Structure and algorithms</span>
+            <span class="text-gray-600">90%</span>
+          </div>
+          <div class="w-full bg-gray-200 rounded-full h-3 overflow-hidden">
+            <div class="progress-bar bg-gradient-to-r from-purple-500 to-pink-500 h-3 rounded-full" style="width:0%" data-target="90"></div>
+          </div>
+        </div>
+
+        <!-- Adobe Tools -->
+        <div data-aos="fade-left" data-aos-delay="500">
+          <div class="flex justify-between mb-2">
+            <span class="font-semibold text-gray-700">SQL</span>
+            <span class="text-gray-600">65%</span>
+          </div>
+          <div class="w-full bg-gray-200 rounded-full h-3 overflow-hidden">
+            <div class="progress-bar bg-gradient-to-r from-gray-400 to-gray-600 h-3 rounded-full" style="width:0%" data-target="65"></div>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+
+  <!-- Progress Bar Animation Script -->
+  <script>
+    document.addEventListener("DOMContentLoaded", () => {
+      const bars = document.querySelectorAll(".progress-bar");
+
+      const animateBars = () => {
+        bars.forEach(bar => {
+          const rect = bar.getBoundingClientRect();
+          if(rect.top < window.innerHeight - 50 && !bar.classList.contains("filled")) {
+            const target = bar.getAttribute("data-target");
+            bar.style.width = target + "%";
+            bar.style.transition = "width 1.5s ease-in-out";
+            bar.classList.add("filled");
+          }
+        });
+      };
+
+      window.addEventListener("scroll", animateBars);
+      animateBars();
+    });
+  </script>
+</section>
+
+  <!-- Projects Section -->
+  <section id="projects" class="py-16 bg-white text-center">
+    <h2 class="text-3xl font-bold text-gray-800">Projects</h2>
+    <div class="mt-10 max-w-6xl mx-auto grid md:grid-cols-3 gap-8">
+      <div class="p-6 bg-gray-50 rounded-xl shadow hover:shadow-lg transition" data-aos="fade-up">
+        <h3 class="font-bold text-lg">AI in Biotechnology</h3>
+        <p class="mt-2 text-gray-600">AI-based framework for post-PCR HRMA analysis.</p>
+        <a href="#" class="mt-4 inline-block text-sky-500 font-semibold">Learn More</a>
+      </div>
+      <div class="p-6 bg-gray-50 rounded-xl shadow hover:shadow-lg transition" data-aos="fade-up">
+        <h3 class="font-bold text-lg">Churn ML</h3>
+        <p class="mt-2 text-gray-600">ML web app for predicting Bank customer churn.</p>
+        <a href="#" class="mt-4 inline-block text-sky-500 font-semibold">Learn More</a>
+      </div>
+      <div class="p-6 bg-gray-50 rounded-xl shadow hover:shadow-lg transition" data-aos="fade-up">
+        <h3 class="font-bold text-lg">Image to Hashtags</h3>
+        <p class="mt-2 text-gray-600">AI tool that generates trending hashtags for images.</p>
+        <a href="#" class="mt-4 inline-block text-sky-500 font-semibold">Try It</a>
+      </div>
+      <div class="p-6 bg-gray-50 rounded-xl shadow hover:shadow-lg transition" data-aos="fade-up">
+        <h3 class="font-bold text-lg">Product Review Analysis</h3>
+        <p class="mt-2 text-gray-600">N-Gram modelling & classification with Transformers.</p>
+      </div>
+      <div class="p-6 bg-gray-50 rounded-xl shadow hover:shadow-lg transition" data-aos="fade-up">
+        <h3 class="font-bold text-lg">PyHRM</h3>
+        <p class="mt-2 text-gray-600">Python library for DNA melting signal processing.</p>
+        <a href="#" class="mt-4 inline-block text-sky-500 font-semibold">Learn More</a>
+      </div>
+      <div class="p-6 bg-gray-50 rounded-xl shadow hover:shadow-lg transition" data-aos="fade-up">
+        <h3 class="font-bold text-lg">Extractor</h3>
+        <p class="mt-2 text-gray-600">GUI app to extract “.rex” files into “.xls”.</p>
+      </div>
+      <div class="p-6 bg-gray-50 rounded-xl shadow hover:shadow-lg transition" data-aos="fade-up">
+        <h3 class="font-bold text-lg">Meltcurve Interpreter</h3>
+        <p class="mt-2 text-gray-600">Interactive app for PCR product classification.</p>
+      </div>
+    </div>
+  </section>
+
+<!-- Contact Section -->
+<section id="contact" class="py-20 bg-gray-50">
+  <div class="max-w-6xl mx-auto px-6 text-center">
+    <h2 class="text-3xl font-bold text-gray-800 mb-4" data-aos="fade-up">Get in Touch</h2>
+    <p class="text-gray-600 mb-12 max-w-2xl mx-auto" data-aos="fade-up" data-aos-delay="100">
+      Feel free to reach out to me for collaborations, project discussions, or any exciting opportunities.
+    </p>
+
+    <div class="grid gap-6 sm:grid-cols-2 lg:grid-cols-4">
+      <!-- Email -->
+      <div class="bg-white p-6 rounded-2xl shadow hover:shadow-xl transition" data-aos="zoom-in">
+        <h3 class="font-semibold text-gray-800 mb-2">Email</h3>
+        <p class="text-gray-600">
+          <a href="mailto:vidyabandgar97@gmail.com" class="text-sky-500 hover:underline">vidyabandgar97@gmail.com</a>
+        </p>
+      </div>
+
+      <!-- GitHub -->
+      <div class="bg-white p-6 rounded-2xl shadow hover:shadow-xl transition" data-aos="zoom-in" data-aos-delay="100">
+        <h3 class="font-semibold text-gray-800 mb-2">GitHub</h3>
+        <p class="text-gray-600">
+          <a href="https://github.com/vidyabandgar97" target="_blank" class="text-sky-500 hover:underline">github.com/vidyabandgar97</a>
+        </p>
+      </div>
+
+      <!-- LinkedIn -->
+      <div class="bg-white p-6 rounded-2xl shadow hover:shadow-xl transition" data-aos="zoom-in" data-aos-delay="200">
+        <h3 class="font-semibold text-gray-800 mb-2">LinkedIn</h3>
+        <p class="text-gray-600">
+          <a href="https://www.linkedin.com/in/vidya-bandgar-3a1a931b9/" target="_blank" class="text-sky-500 hover:underline">linkedin.com/in/VidyaBandgar</a>
+        </p>
+      </div>
+
+      <!-- Call -->
+      <div class="bg-white p-6 rounded-2xl shadow hover:shadow-xl transition" data-aos="zoom-in" data-aos-delay="300">
+        <h3 class="font-semibold text-gray-800 mb-2">Call</h3>
+        <p class="text-gray-600">
+          <a href="tel:+917708002179" class="text-sky-500 hover:underline"></a>
+        </p>
+      </div>
+    </div>
+
+    <!-- Resume Button -->
+    <div class="mt-12" data-aos="zoom-in" data-aos-delay="400">
+      <a href="resume.pdf" download
+         class="inline-block bg-gradient-to-r from-sky-400 to-pink-400 text-white px-8 py-4 rounded-full font-semibold shadow-lg transform hover:scale-105 transition">
+        📄 Download My Resume
+      </a>
+    </div>
+  </div>
+</section>
+
+<!-- AOS Script -->
+<script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+<script>
+  AOS.init({
+    duration: 800, // animation duration
+    once: true,    // animation happens only once while scrolling
+  });
+</script>
+
+</body>
 </html>
